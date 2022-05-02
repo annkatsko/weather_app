@@ -6,8 +6,13 @@ import argparse
 api_key = 'a488843f82be53b9e7cd32ac32efc685'
 url = 'https://api.openweathermap.org/data/2.5/weather'
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(
+    prog='Weather Script',
+    description='Forecasting program. This program can show weather in any city',
+    epilog='(c) Ann Katsko'
+
+)
 args = parser.parse_args()
-data = requests.get(url, params={'q': {args.name}, 'appid': api_key}).json()
 parser.add_argument('-c','--city', nargs='+', help='You should type city to know weather forecast', default='Minsk')
+data = requests.get(url, params={'q': {args.name}, 'appid': api_key}).json()
 print('Temperature is ' + str(round(data['main']['temp'] - 273.15)) + '°С.')
