@@ -14,5 +14,7 @@ parser = argparse.ArgumentParser(
 )
 args = parser.parse_args()
 parser.add_argument('-c','--city', nargs='+', help='You should type city to know weather forecast', default='Minsk')
-data = requests.get(url, params={'q': {args.name}, 'appid': api_key}).json()
-print('Temperature is ' + str(round(data['main']['temp'] - 273.15)) + '°С.')
+city = args.city
+data = requests.get(url, params={'q': city, 'appid': api_key}).json()
+if args.city:
+    print('Temperature is ' + str(round(data['main']['temp'] - 273.15)) + '°С.')
