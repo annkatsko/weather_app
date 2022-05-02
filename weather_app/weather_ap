@@ -12,8 +12,9 @@ parser = argparse.ArgumentParser(
     epilog='(c) Ann Katsko'
 
 )
-args = parser.parse_args()
+
 parser.add_argument('-c','--city', help='You should type city to know weather forecast', default='Minsk')
+args = parser.parse_args()
 city = args.city
 data = requests.get(url, params={'q': city, 'appid': api_key}).json()
 if args.city:
