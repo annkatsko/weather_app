@@ -1,0 +1,9 @@
+def number(number):
+    sum: int=0
+    sum+=min(number)
+    number.remove(min(number))
+    sum += min(number)
+    number.remove(min(number)
+    print(sum)
+
+number([123, 879, 87897])
