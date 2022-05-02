@@ -17,4 +17,5 @@ parser.add_argument('-c','--city', help='You should type city to know weather fo
 city = args.city
 data = requests.get(url, params={'q': city, 'appid': api_key}).json()
 if args.city:
+
     print('Temperature is ' + str(round(data['main']['temp'] - 273.15)) + '°С.')
