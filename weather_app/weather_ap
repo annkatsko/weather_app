@@ -2,9 +2,8 @@ import requests
 import json
 import argparse
 
+
 api_key = 'a488843f82be53b9e7cd32ac32efc685'
-
-
 parser = argparse.ArgumentParser(
     prog='Weather Script',
     description='Forecasting program. This program can show weather in any city',
