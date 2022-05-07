@@ -18,10 +18,11 @@ parser.add_argument('-c',
                     '--days',
                     required=True,
                     nargs='+',
-                    help='You should enter city name to find out a weather forecast'
-                    )
+                    help='You should enter city name to find out a weather forecast')
 args = parser.parse_args()
-data = requests.get('http://api.openweathermap.org/geo/1.0/direct?', params={'q': args.city, 'APPID': api_key, 'units': 'metric'}).json()
-data2 = requests.get('http://api.openweathermap.org/data/2.5/forecast/daily?', params={'lat': data[0]['lat'], 'lon': data[0]['lon'], 'APPID': api_key}).json()
+data = requests.get('http://api.openweathermap.org/geo/1.0/direct?',
+                    params={'q': args.city, 'APPID': api_key, 'units': 'metric'}).json()
+data2 = requests.get('http://api.openweathermap.org/data/2.5/forecast/daily?',
+                     params={'lat': data[0]['lat'], 'lon': data[0]['lon'], 'APPID': api_key}).json()
 if args.city:
     print(f'Temperature is', data2['list'][0]['temp']['day'])
