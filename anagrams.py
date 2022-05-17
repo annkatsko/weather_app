@@ -6,7 +6,5 @@ def anagrams(word, words):
     return anagrams
 
 
-
-
 anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])
 anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
