@@ -14,7 +14,7 @@ def filter_out_words(data: list, bad_words_file: str) -> str:
             if word in line:
                 line = line.replace(word, '')
         new_data.append(line)
-    return ' '.join(new_data)
+    return ''.join(new_data)
 
 
 def write_text_into_file(data: list, bad_words_file: str, new_filе_name: str) -> None:
