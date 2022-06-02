@@ -1,3 +1,9 @@
+def get_data_from_file(filepath: str) -> list:
+    """Convert data from file to list"""
+    with open(filepath, encoding="utf-8") as file:
+        return list(file.readlines())
+
+
 def filter_out_words(data: list, bad_words: list) -> list:
     """Function remove all words from list of bad_words"""
     new_data = []
@@ -7,12 +13,6 @@ def filter_out_words(data: list, bad_words: list) -> list:
                 line = line.replace(word, '')
         new_data.append(line)
     return new_data
-
-
-def get_data_from_file(filepath: str) -> list:
-    """Convert data from file to list"""
-    with open(filepath, encoding="utf-8") as file:
-        return list(file.readlines())
 
 
 def write_data(filepath: str, data: list) -> None:
@@ -31,3 +31,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
