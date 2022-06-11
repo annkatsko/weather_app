@@ -1,25 +1,21 @@
 def find_common_elements(list1: list, list2: list) -> list:
-    """Function removes not common elements of lists from list1"""
+    """Function returns a list with common elements of two given lists"""
+    common_elements = []
     for element in list1:
-        n = 1
-        if element in list2:
-            if list1.count(element) >= list2.count(element):
-                while list1.count(element) - list2.count(element) >= n:
-                    list1.remove(element)
-                    n += 1
-        else:
-            list1.remove(element)
-    return list1
+        element_quantity_list1 = list1.count(element)
+        element_quantity_list2 = list2.count(element)
+        if element not in common_elements:
+            if element_quantity_list1 > element_quantity_list2:
+                for num in range(element_quantity_list2):
+                    common_elements.append(element)
+            else:
+                for num in range(element_quantity_list1):
+                    common_elements.append(element)
+    return common_elements
 
 
-lst1 = [[1, 76, 99, 4, 99, 99],
-        [1, 99, 99, 4, 76, 2, 52, 23, 22, 77],
-        [99, 99, 17, 4, 2, 76, 66, 14],
-        [1, 76, 99, 2, 4],
-        [1, 76, 2, 4, 99]]
-index = 2
-common_elements = find_common_elements(lst1[0], lst1[1])
-while index < len(lst1):
-    common_elements = find_common_elements(common_elements, lst1[index])
-    index += 1
+list_of_lists = [[1,2,3,4,4,4],[1,2, 4, 4], []]
+common_elements = find_common_elements(list_of_lists[0], list_of_lists[1])
+for index in range(2, len(list_of_lists)):
+    common_elements = find_common_elements(common_elements, list_of_lists[index])
 print(common_elements)
