@@ -14,8 +14,11 @@ def find_common_elements(list1: list, list2: list) -> list:
     return common_elements
 
 
-list_of_lists = [[1,2,3,4,4,4],[1,2, 4, 4], []]
-common_elements = find_common_elements(list_of_lists[0], list_of_lists[1])
-for index in range(2, len(list_of_lists)):
-    common_elements = find_common_elements(common_elements, list_of_lists[index])
-print(common_elements)
+list_of_lists = [[], []]
+if len(list_of_lists) > 1:
+    common_elements = find_common_elements(list_of_lists[0], list_of_lists[1])
+    for index in range(2, len(list_of_lists)):
+        common_elements = find_common_elements(common_elements, list_of_lists[index])
+    print(common_elements)
+else:
+    print([])
